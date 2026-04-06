@@ -1,0 +1,120 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="Professional currency converter with live exchange rates">
+    <meta name="keywords" content="currency converter, exchange rates, forex, money converter">
+    <meta name="author" content="Shme-CS">
+    <title>Currency Converter - Live Exchange Rates</title>
+    <link rel="stylesheet" href="css/style.css">
+</head>
+<body>
+    <div class="container">
+        <!-- Theme Toggle -->
+        <button class="theme-toggle" id="themeToggle" aria-label="Toggle theme">
+            <span class="theme-icon">🌙</span>
+        </button>
+
+        <!-- Main Converter Card -->
+        <div class="converter-card">
+            <header class="converter-header">
+                <h1>Currency Converter</h1>
+                <p class="subtitle">Real-time exchange rates</p>
+            </header>
+
+            <!-- Amount Input Section -->
+            <div class="input-section">
+                <label for="amount">Amount</label>
+                <input 
+                    type="number" 
+                    id="amount" 
+                    class="amount-input"
+                    placeholder="Enter amount"
+                    value="1"
+                    min="0"
+                    step="0.01"
+                    aria-label="Amount to convert"
+                >
+            </div>
+
+            <!-- From Currency Section -->
+            <div class="currency-section">
+                <label for="fromCurrency">From</label>
+
+                <div class="currency-input-wrapper">
+                    <span class="currency-flag" id="fromFlag">🇺🇸</span>
+                    <select id="fromCurrency" class="currency-select" aria-label="From currency">
+                        <option value="USD" selected>USD - US Dollar</option>
+                    </select>
+                </div>
+            </div>
+
+            <!-- Swap Button -->
+            <button class="swap-button" id="swapButton" aria-label="Swap currencies">
+                <span class="swap-icon">⇅</span>
+            </button>
+
+            <!-- To Currency Section -->
+            <div class="currency-section">
+                <label for="toCurrency">To</label>
+                <div class="currency-input-wrapper">
+                    <span class="currency-flag" id="toFlag">🇪🇺</span>
+                    <select id="toCurrency" class="currency-select" aria-label="To currency">
+                        <option value="EUR">EUR - Euro</option>
+                    </select>
+                </div>
+            </div>
+
+            <!-- Loading Spinner -->
+            <div class="loading-spinner" id="loadingSpinner">
+                <div class="spinner"></div>
+                <p>Fetching exchange rates...</p>
+            </div>
+
+            <!-- Error Message -->
+            <div class="error-message" id="errorMessage">
+                <span class="error-icon">⚠️</span>
+                <p id="errorText"></p>
+                <button class="retry-button" id="retryButton">Retry</button>
+            </div>
+
+            <!-- Conversion Result -->
+            <div class="result-section" id="resultSection">
+                <div class="result-amount">
+                    <span class="result-value" id="resultValue">0.00</span>
+                    <span class="result-currency" id="resultCurrency">EUR</span>
+                </div>
+                <div class="exchange-rate-info">
+                    <p class="rate-text" id="rateText">1 USD = 0.85 EUR</p>
+                    <p class="last-updated" id="lastUpdated">Updated: --</p>
+                </div>
+                <button class="copy-button" id="copyButton" aria-label="Copy result">
+                    <span>📋 Copy</span>
+                </button>
+            </div>
+
+            <!-- Favorite Currencies -->
+            <div class="favorites-section">
+                <h3>Quick Convert</h3>
+                <div class="favorites-grid" id="favoritesGrid">
+                    <!-- Populated by JavaScript -->
+                </div>
+            </div>
+        </div>
+
+        <!-- Conversion History -->
+        <div class="history-card" id="historyCard">
+            <div class="history-header">
+                <h2>Conversion History</h2>
+                <button class="clear-history-button" id="clearHistoryButton">Clear</button>
+            </div>
+            <div class="history-list" id="historyList">
+                <!-- Populated by JavaScript -->
+            </div>
+        </div>
+    </div>
+
+    <script src="js/script.js"></script>
+</body>
+</html>
